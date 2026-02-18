@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform shootPoint;
+    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject bulletPrefab;
 
     private bool isShooting;
@@ -17,7 +18,7 @@ public class PlayerShoot : MonoBehaviour
         Projectile projectile = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
         
         Vector2 shootDir = shootPoint.up;
-        projectile.Shoot(shootDir);
+        projectile.Shoot(shootDir, enemyLayer);
     }
     
 
