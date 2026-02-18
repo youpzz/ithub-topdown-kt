@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifeTime = 2f;
+
+    private float damage = 1;
 
     private Rigidbody2D rb;
     private LayerMask enemyLayer;
@@ -13,8 +16,9 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Shoot(Vector2 dir, LayerMask enemyLayer_)
+    public void Shoot(float damage_, Vector2 dir, LayerMask enemyLayer_)
     {
+        damage = damage_;
         rb.linearVelocity = dir.normalized * speed;
         enemyLayer = enemyLayer_;
         Destroy(gameObject, lifeTime);
@@ -22,10 +26,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != enemyLayer)
-        {
-            Destroy(gameObject);
-            // урон прикрутить
-        }
+        collision.GetComponentInParent<Health>().TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
