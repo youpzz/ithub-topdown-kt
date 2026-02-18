@@ -1,6 +1,4 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -22,7 +20,6 @@ public class ChasingEnemy : MonoBehaviour
     void Update()
     {
         Chase();
-
     }
 
     void Chase()
