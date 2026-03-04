@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5285, y: 0.5285, z: 0.5285}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 379794658049124215}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.3820755, b: 0.3820755, a: 1}
+  m_Sprite: {fileID: 6267541734933327490, guid: f3083b83e5264e041a1930a89a03e948, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,8 +98,9 @@ GameObject:
   - component: {fileID: 379794658049124215}
   - component: {fileID: 2306989944106000049}
   - component: {fileID: 4131416918506227150}
-  - component: {fileID: 6235173382493726416}
   - component: {fileID: 7254488461529158591}
+  - component: {fileID: 7740019115803749692}
+  - component: {fileID: 4304721578978010778}
   m_Layer: 6
   m_Name: Chasing Dummy
   m_TagString: Untagged
@@ -115,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442689498963744109}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.52, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -150,9 +151,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  detectionRadius: 4
---- !u!61 &6235173382493726416
-BoxCollider2D:
+  detectionRadius: 5
+--- !u!50 &7254488461529158591
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442689498963744109}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 3438e7fa5f78d6d44a8e3c4bc2d1dbe7, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!60 &7740019115803749692
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -195,35 +223,49 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!50 &7254488461529158591
-Rigidbody2D:
-  serializedVersion: 5
+  m_Points:
+    m_Paths:
+    - - {x: 0.3297844, y: 0.43363738}
+      - {x: 0.27765036, y: 0.53289294}
+      - {x: 0.13296461, y: 0.6037164}
+      - {x: -0.02907753, y: 0.62683797}
+      - {x: -0.30687904, y: 0.5496166}
+      - {x: -0.3640213, y: 0.40213656}
+      - {x: -0.35012013, y: 0.22663048}
+      - {x: -0.26702595, y: 0.17858982}
+      - {x: -0.22186327, y: 0.07971573}
+      - {x: -0.33568764, y: -0.10153127}
+      - {x: -0.49085993, y: -0.49885643}
+      - {x: -0.2632985, y: -0.6121057}
+      - {x: 0.27242756, y: -0.58274233}
+      - {x: 0.47147524, y: -0.5230875}
+      - {x: 0.36236286, y: -0.1440568}
+      - {x: 0.21180582, y: 0.049319267}
+      - {x: 0.21361017, y: 0.15109396}
+      - {x: 0.30165768, y: 0.23147696}
+  m_UseDelaunayMesh: 0
+--- !u!95 &4304721578978010778
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442689498963744109}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f7f55d8588ed5494d93234cd782c6a8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3543940834904262429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8865107987718559303, guid: 17290988ae043194b821c0806ec76719, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8865107987718559303, guid: 17290988ae043194b821c0806ec76719, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

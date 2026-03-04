@@ -1074,11 +1074,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1967295675}
   - component: {fileID: 1967295678}
+  - component: {fileID: 1967295683}
+  - component: {fileID: 1967295682}
   - component: {fileID: 1967295677}
   - component: {fileID: 1967295679}
   - component: {fileID: 1967295680}
   - component: {fileID: 1967295681}
-  - component: {fileID: 1967295682}
+  - component: {fileID: 1967295684}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1172,7 +1174,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   shootPoint: {fileID: 571090098}
-  bulletPrefab: {fileID: 7712149573526701927, guid: 7ab309cb38be04942934e6e84db0fa6e, type: 3}
+  bulletPrefabs:
+  - {fileID: 7712149573526701927, guid: 3de1022869f89dc45abe02260165afd5, type: 3}
+  - {fileID: 6854303688113151801, guid: 5048c31a5e151354191bafc6e6099627, type: 3}
+  - {fileID: 2302433182317273707, guid: a0ec6b17b9a54ee40a12e1ee6ecf1adc, type: 3}
+  - {fileID: 4227246880845700118, guid: aca3244a357158449ac01fa67a91db20, type: 3}
+  - {fileID: 4227246880845700118, guid: aca3244a357158449ac01fa67a91db20, type: 3}
   gunToRotate: {fileID: 1359362588}
   gunRotateTime: 0.25
   shootSound:
@@ -1261,6 +1268,40 @@ PolygonCollider2D:
       - {x: 0.66785574, y: -0.7680228}
       - {x: 0.73065805, y: -0.5955349}
   m_UseDelaunayMesh: 0
+--- !u!95 &1967295683
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967295674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ab0aeb56be35ba419aec6e9b36afa1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1967295684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967295674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cd4f5853fe1934db88860a18297660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2034858678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1677,46 +1718,6 @@ PrefabInstance:
     - target: {fileID: 2442689498963744109, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
       propertyPath: m_Name
       value: Chasing Dummy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4131416918506227150, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: detectionRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4492904878324108165, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -7169327573993471426, guid: f6f6fcb28fa39bf4c81e369cf36a7054, type: 3}
-    - target: {fileID: 5343991374872645978, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6235173382493726416, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Size.x
-      value: 1.5148206
-      objectReference: {fileID: 0}
-    - target: {fileID: 6235173382493726416, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3146124
-      objectReference: {fileID: 0}
-    - target: {fileID: 6235173382493726416, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.014300585
-      objectReference: {fileID: 0}
-    - target: {fileID: 6235173382493726416, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.014300585
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254488461529158591, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3438e7fa5f78d6d44a8e3c4bc2d1dbe7, type: 2}
-    - target: {fileID: 7254488461529158591, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254488461529158591, guid: 526ef6355aa5d9645aabcd7a84c7e68b, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
     [Space(5)]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform shootPoint;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject[] bulletPrefabs;
     [Space(5)]
     [Header("Smooth Gun Rotation")]
     [SerializeField] private Transform gunToRotate;
@@ -16,7 +16,7 @@ public class PlayerShoot : MonoBehaviour
     
     [Space(5)]
     [SerializeField] private AudioClip[] shootSound;
-    private int currentShootSound = 0;
+    private int currentShot = 0;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        Projectile projectile = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
+        Projectile projectile = Instantiate(bulletPrefabs[currentShot], shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
         
         Vector2 shootDir = shootPoint.up;
         projectile.Shoot(damage, shootDir, enemyLayer);
@@ -55,8 +55,8 @@ public class PlayerShoot : MonoBehaviour
 
     private void PlayShootSfx()
     {
-        currentShootSound++;
-        if (currentShootSound >= shootSound.Length) currentShootSound = 0;
-        AudioManager.Instance.PlaySound(shootSound[currentShootSound], true);
+        currentShot++;
+        if (currentShot >= bulletPrefabs.Length) currentShot = 0;
+        AudioManager.Instance.PlaySound(shootSound[currentShot], true);
     }
 }
