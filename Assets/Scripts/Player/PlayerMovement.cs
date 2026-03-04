@@ -21,20 +21,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = moveInput * moveSpeed;
-        RotateToMouse();
     }
 
     void SetMoveInput(Vector2 input)
     {
         moveInput = input.normalized;
-    }
-
-    void RotateToMouse()
-    {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 direction = mouseWorldPos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle - 90f;
     }
 
     void OnDisable()
