@@ -5,13 +5,19 @@ using UnityEngine.InputSystem;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private float damage = 2;
-    [SerializeField] private Transform shootPoint;
+    [Space(5)]
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject bulletPrefab;
+    [Space(5)]
     [Header("Smooth Gun Rotation")]
     [SerializeField] private Transform gunToRotate;
     [SerializeField] private float gunRotateTime = 0.15f;
     
+    [Space(5)]
+    [SerializeField] private AudioClip[] shootSound;
+    private int currentShootSound = 0;
+
     void Start()
     {
         PlayerInput.Instance.OnShoot += Shoot;
@@ -28,6 +34,7 @@ public class PlayerShoot : MonoBehaviour
         
         Vector2 shootDir = shootPoint.up;
         projectile.Shoot(damage, shootDir, enemyLayer);
+        PlayShootSfx();
     }
 
     void RotateToMouse()
@@ -44,5 +51,12 @@ public class PlayerShoot : MonoBehaviour
     void OnDisable()
     {
         if (PlayerInput.Instance != null) PlayerInput.Instance.OnShoot -= Shoot;
+    }
+
+    private void PlayShootSfx()
+    {
+        currentShootSound++;
+        if (currentShootSound >= shootSound.Length) currentShootSound = 0;
+        AudioManager.Instance.PlaySound(shootSound[currentShootSound], true);
     }
 }
