@@ -8,8 +8,7 @@ public class Health : MonoBehaviour
     public event Action<float, float> OnHealthChanged;
 
     [SerializeField] private float health;
-
-
+    [SerializeField] private bool destroyOnDeath = true;
     private float maxHealth;
 
 
@@ -23,9 +22,9 @@ public class Health : MonoBehaviour
         health -= damage; 
         if (health <= 0)
         {
-            if (gameObject.tag == "Player") SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // if (gameObject.tag == "Player") SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-            Destroy(gameObject);
+            if (destroyOnDeath) Destroy(gameObject);
         }
         
         OnHealthChanged?.Invoke(health, maxHealth);

@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
 
     public event Action<Vector2> OnMove;
     public event Action OnShoot;
+    public event Action OnReload;
 
     private InputActions inputActions;
 
@@ -29,18 +30,25 @@ public class PlayerInput : MonoBehaviour
         OnShoot?.Invoke();
     }
 
+    private void HandleReload(InputAction.CallbackContext context)
+    {
+        OnReload?.Invoke();
+    }
+
     void OnEnable()
     {
         inputActions.Enable();
 
         inputActions.Player.Move.performed += HandleMove;
         inputActions.Player.Shoot.performed += HandleShoot;
+        inputActions.Player.Reload.performed += HandleReload;
     }
 
     void OnDisable()
     {
         inputActions.Player.Move.performed -= HandleMove;
         inputActions.Player.Shoot.performed -= HandleShoot;
+        inputActions.Player.Reload.performed -= HandleReload;
 
         inputActions.Disable();
     }
