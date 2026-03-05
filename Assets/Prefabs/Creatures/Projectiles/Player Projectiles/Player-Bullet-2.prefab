@@ -131,6 +131,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 2
+  particleOnMiss:
+  - {fileID: 2186102421797816184, guid: bbcdace7d93a4f54d9077f6769f3a9de, type: 3}
+  - {fileID: 1294657485629927384, guid: 4b0d6448db6f33749a1a9c6449645255, type: 3}
+  - {fileID: 7939920966359119297, guid: 1cf3db6f41991fe4091d29e940b1d46d, type: 3}
+  - {fileID: 3171102254725282449, guid: ce4974f589bde9b448ff0e5cdda49a8c, type: 3}
+  - {fileID: 6961903260938401135, guid: 624424bc929240d478a1c2b13545bc9b, type: 3}
+  - {fileID: 3088305801192825060, guid: b6d85959172ba7945b0acb019ab5e412, type: 3}
+  paritcleOnHit:
+  - {fileID: 5335098952809589324, guid: 03c4ba048ccc4a54b9381c074d960829, type: 3}
+  - {fileID: 3661993704733966233, guid: 1645f65ce283776408b79a638d2a2ff0, type: 3}
+  - {fileID: 8364553958423546029, guid: aba5529854614d74bad6e3a9af8cbe01, type: 3}
 --- !u!60 &7767048521962692453
 PolygonCollider2D:
   m_ObjectHideFlags: 0

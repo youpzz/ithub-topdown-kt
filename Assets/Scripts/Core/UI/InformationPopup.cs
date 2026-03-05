@@ -7,11 +7,14 @@ public class InformationPopup : MonoBehaviour
     public static InformationPopup Instance;
     [SerializeField] private UIPanel titlePanel;
     [SerializeField] private UIPanel commentaryPanel;
+    [SerializeField] private UIPanel mainPanel;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text commentaryText;
+    [SerializeField] private TMP_Text mainText;
 
     private Coroutine titleHideCoroutine;
     private Coroutine commentaryCoroutine;
+    private Coroutine mainCoroutine;
 
     void Awake()
     {
@@ -39,6 +42,18 @@ public class InformationPopup : MonoBehaviour
 
         commentaryCoroutine = StartCoroutine(HideAfterDelay(time, commentaryPanel));
     }
+
+    public void ShowBigPopup(string message, float time = 10f)
+    {
+        mainText.text = message;
+
+        mainPanel.Show();
+
+        if (mainCoroutine != null) StopCoroutine(mainCoroutine);
+
+        mainCoroutine = StartCoroutine(HideAfterDelay(time, mainPanel));
+    }
+
 
     private IEnumerator HideAfterDelay(float time, UIPanel panel)
     {

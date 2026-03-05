@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public event Action<float, float> OnHealthChanged;
+    public event Action OnDeath;
 
     [SerializeField] private float health;
     [SerializeField] private bool destroyOnDeath = true;
+    
     private float maxHealth;
 
 
@@ -23,8 +25,12 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             // if (gameObject.tag == "Player") SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-            if (destroyOnDeath) Destroy(gameObject);
+            OnDeath?.Invoke();
+            if (destroyOnDeath)
+            {
+                Destroy(gameObject);
+                
+            }
         }
         
         OnHealthChanged?.Invoke(health, maxHealth);

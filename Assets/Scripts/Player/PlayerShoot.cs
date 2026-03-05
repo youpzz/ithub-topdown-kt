@@ -23,6 +23,7 @@ public class PlayerShoot : MonoBehaviour
     [Header("Smooth Gun Rotation")]
     [SerializeField] private Transform gunToRotate;
     [SerializeField] private float gunRotateTime = 0.15f;
+    [SerializeField] private SpriteRenderer gunSprite;
     
     [Space(5)]
     [SerializeField] private AudioClip shootSfx;
@@ -56,7 +57,7 @@ public class PlayerShoot : MonoBehaviour
         Projectile projectile = Instantiate(bulletPrefabs[currentShot], shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
 
         Vector2 shootDir = shootPoint.up;
-        projectile.Shoot(damage, shootDir, enemyLayer);
+        projectile.Shoot(damage, shootDir, enemyLayer, this.gameObject);
         PlayShootSfx();
         CameraShake.Instance.TriggerShake();
         shootFx.Play();
@@ -91,7 +92,9 @@ public class PlayerShoot : MonoBehaviour
 
         // Отражение спрайта
         bool flipX = angle > -90f && angle < 90f;
-        gunToRotate.localScale = new Vector3(flipX ? -1f : 1f, 1f, 1f);
+        gunSprite.flipX = flipX;
+
+
     }
 
     void OnDisable()

@@ -66,7 +66,7 @@ public class ShootingEnemy : MonoBehaviour
     void Shoot()
     {
         Projectile bullet = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
-        bullet.Shoot(damage, direction, enemyMask);
+        bullet.Shoot(damage, direction, enemyMask, this.gameObject);
     }
 
 

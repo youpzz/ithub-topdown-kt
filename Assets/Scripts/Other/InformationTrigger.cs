@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InformationTrigger : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InformationTrigger : MonoBehaviour
     [SerializeField] private string messageToSend = "Сообщение";
     [SerializeField] private bool showsAgain = false;
     [SerializeField] private AudioClip soundToPlay;
+    [SerializeField] private UnityEvent unityEvent;
 
     private bool wasShown = false;
 
@@ -20,7 +22,8 @@ public class InformationTrigger : MonoBehaviour
 
         if (showType == ShowType.Title) InformationPopup.Instance.ShowTitlePopup(messageToSend);
         else InformationPopup.Instance.ShowCommentaryPopup(messageToSend);
-        
+
+        unityEvent?.Invoke();
         wasShown = true;
     }
 
