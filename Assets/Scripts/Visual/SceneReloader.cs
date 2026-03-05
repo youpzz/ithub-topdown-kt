@@ -7,17 +7,27 @@ public class SceneReloader : MonoBehaviour
 {
     public static SceneReloader Instance;
 
-    [SerializeField] private Image blackScreen;
+    [SerializeField] private CanvasGroup blackScreen;
+    [SerializeField] private float fadeDuration = 1.5f;
 
     void Awake()
     {
         Instance = this;
-        blackScreen.color = new Color(0, 0, 0, 0);
+        blackScreen.alpha = 0;
+        blackScreen.gameObject.SetActive(false);
     }
 
-    public void Reload(float timeToFade = 1)
+    public void Reload(float delayBeforeFade = 1f)
     {
-        blackScreen.DOFade(1f, timeToFade)
-            .OnComplete(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        blackScreen.gameObject.SetActive(true);
+        blackScreen.alpha = 0;
+
+        DOVirtual.DelayedCall(delayBeforeFade, () =>
+        {
+            blackScreen
+                .DOFade(1f, fadeDuration)
+                .SetEase(Ease.InQuad)
+                .OnComplete(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        });
     }
 }

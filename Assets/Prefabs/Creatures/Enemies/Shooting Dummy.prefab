@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 252981186876461486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.012, y: -0.487, z: 0}
+  m_LocalPosition: {x: -0.01, y: -1.5, z: 0}
   m_LocalScale: {x: 0.15828148, y: 0.5104, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.49621755, g: 0.22316661, b: 0.5566038, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,11 +164,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1195458779362535816, guid: c5e72a970d06c9b49ab01ed3b7010106, type: 3}
   m_Color: {r: 0.7951282, g: 0.3890174, b: 0.8867924, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -256,7 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bcb5d25afec94bbc3093505ba148b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
+  destroyOnDeath: 1
 --- !u!61 &6265432080408718524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.019880295, y: -0.039756775}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -301,7 +302,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.9084587, y: 2.8686981}
   m_EdgeRadius: 0
 --- !u!50 &4117907953705392703
 Rigidbody2D:
@@ -343,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 3
-  detectionRadius: 6
+  detectionRadius: 15
   aimSpeed: 15
   projectilePrefab: {fileID: 7712149573526701927, guid: 7ab309cb38be04942934e6e84db0fa6e, type: 3}
   shootPoint: {fileID: 4397148088073314912}

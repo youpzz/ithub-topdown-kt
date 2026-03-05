@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class InformationTrigger : MonoBehaviour
 {
-    public enum ShowType {Title, Commentary}
+    public enum ShowType {Title, Commentary, MainType}
 
     [SerializeField] private ShowType showType = ShowType.Title;
     [SerializeField] private string messageToSend = "Сообщение";
@@ -21,7 +21,8 @@ public class InformationTrigger : MonoBehaviour
         if (soundToPlay != null) AudioManager.Instance.PlaySound(soundToPlay);
 
         if (showType == ShowType.Title) InformationPopup.Instance.ShowTitlePopup(messageToSend);
-        else InformationPopup.Instance.ShowCommentaryPopup(messageToSend);
+        else if (showType == ShowType.MainType) InformationPopup.Instance.ShowBigPopup(messageToSend);
+        else if (showType == ShowType.Commentary) InformationPopup.Instance.ShowCommentaryPopup(messageToSend);
 
         unityEvent?.Invoke();
         wasShown = true;
